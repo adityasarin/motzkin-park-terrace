@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motzkin Park Terrace: Gap Analysis</title>
+<style>
+  :root {
+    --bg: #ffffff; --ink: #1c1c1c; --muted: #55564f; --paper: #e2e2dd; --sage: #6f8a6e; --sage-light: #dfe7de;
+    --crit: #9b2c1c; --crit-bg: #f6e3de; --high: #7a5a12; --high-bg: #f3ecd9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #1c1c1c; --ink: #f1f1ef; --muted: #a6a7a1; --paper: #262626; --sage: #8fa68e; --sage-light: #2c352c; --crit: #f0a493; --crit-bg: #3a2420; --high: #e3c47a; --high-bg: #352d1b; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 Georgia, "Source Serif 4", serif; }
+  main { max-width: 52rem; margin: 0 auto; padding: 48px 16px 80px; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1; letter-spacing: -0.02em; margin: 0 0 12px; font-weight: 400; }
+  h2 { font-size: 1.6rem; line-height: 1.1; margin: 48px 0 12px; font-weight: 400; }
+  .lede { font-size: 1.2rem; margin: 0 0 8px; }
+  .meta { color: var(--muted); font-size: 0.875rem; margin: 0 0 32px; }
+  .score { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin: 24px 0; }
+  .score div { background: var(--paper); padding: 16px; }
+  .score b { display: block; font-size: 2.2rem; font-weight: 400; line-height: 1; font-variant-numeric: tabular-nums; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 0.95rem; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--paper); }
+  th { color: var(--muted); font-weight: 400; font-size: 0.85rem; }
+  .sev { display: inline-block; padding: 2px 8px; font-size: 0.8rem; font-weight: 700; }
+  .crit { background: var(--crit-bg); color: var(--crit); }
+  .high { background: var(--high-bg); color: var(--high); }
+  .done { background: var(--sage-light); color: var(--sage); }
+  ol li, ul li { margin-bottom: 6px; }
+  .note { background: var(--paper); padding: 16px 20px; margin: 24px 0; }
+  @media print { body { font-size: 11pt; } main { padding: 0; } h2 { break-after: avoid; } table { break-inside: auto; } tr { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Motzkin Park Terrace: gap analysis</h1>
+  <p class="lede">Why buyers and AI engines can't find, or can't trust, the project online, and what has been done about it.</p>
+  <p class="meta">Prepared 27 October 2026 · Sarjapur–Attibele Road, Bengaluru 562125 · Karnataka RERA PRM/KA/RERA/1251/308/PR/180120/001659</p>
+
+  <div class="score">
+    <div><b>2</b>critical gaps</div>
+    <div><b>5</b>high gaps</div>
+    <div><b>4</b>closed by the new site</div>
+    <div><b>3</b>need the developer's action</div>
+  </div>
+
+  <h2>The short version</h2>
+  <p>Search for the project's name today and more than ten broker and portal pages answer before any official source. Among them they give three developer names, four possession dates and two land areas. Google and AI answer engines can't verify which is true, so they hedge or cite brokers. Meanwhile the project's real advantage, both villa types under ₹2 Cr inside a gated community of 47 homes, is said nowhere with authority.</p>
+
+  <h2>Gaps</h2>
+  <table>
+    <thead><tr><th>#</th><th>Gap</th><th>Severity</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>No official website; brand searches go to 10+ broker and aggregator pages (motzkinparkterrace.com/.in, cityair, 99acres, SquareYards, Dwello, CommonFloor, Quikr)</td><td><span class="sev crit">Critical</span></td><td><span class="sev done">Built</span> Official site with 20+ pages, ready to deploy</td></tr>
+      <tr><td>2</td><td>Entity confusion: three developer names, four possession dates, two land areas</td><td><span class="sev crit">Critical</span></td><td><span class="sev done">Built</span> /official-facts with sources, a "what older listings get wrong" table and /llms.txt. <b>Needs the developer to confirm the values</b></td></tr>
+      <tr><td>3</td><td>Google Business Profile reads "Unnamed Rd"; thin categories, photos and description</td><td><span class="sev high">High</span></td><td>Playbook written (docs/gbp-playbook.md); <b>needs owner access</b></td></tr>
+      <tr><td>4</td><td>No Organization, ApartmentComplex or FAQPage schema anywhere</td><td><span class="sev high">High</span></td><td><span class="sev done">Built</span> JSON-LD on every page from one source file</td></tr>
+      <tr><td>5</td><td>No owned content for "villas under 2 Cr Sarjapur", "STRR impact" or schools</td><td><span class="sev high">High</span></td><td><span class="sev done">Built</span> 3 insights posts, a price-list page and 31 FAQs; calendar for 6 months</td></tr>
+      <tr><td>6</td><td>Justdial listing unclaimed; Bing Places status unknown</td><td><span class="sev high">High</span></td><td>Directory list in the playbook; <b>needs claiming</b></td></tr>
+      <tr><td>7</td><td>No ad tracking: no Pixel or CAPI, no Google Ads conversions, no UTM capture</td><td><span class="sev high">High</span></td><td><span class="sev done">Built</span> UTM, gclid and fbclid capture, dataLayer events, server-side CAPI, consent banner; GTM ID pending</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Competitive position</h2>
+  <table>
+    <thead><tr><th>Project</th><th>From</th><th>Scale</th></tr></thead>
+    <tbody>
+      <tr><td><b>Motzkin Park Terrace</b></td><td><b>₹1.48 Cr</b></td><td><b>47 villas, ~2.1 acres</b></td></tr>
+      <tr><td>JRC Palladio</td><td>₹2.09 Cr</td><td>Triplex villas</td></tr>
+      <tr><td>Evo Aeris</td><td>₹2.6 Cr</td><td>166 villas, 13 of 60 acres</td></tr>
+      <tr><td>MJR Divine Meadows</td><td>₹2.75 Cr</td><td>137 duplex villas</td></tr>
+      <tr><td>NVT A Wonderful World</td><td>₹3.15 Cr</td><td>~100 acres, pre-launch</td></tr>
+      <tr><td>Nambiar Bellezea</td><td>₹4.96 Cr+</td><td>110 acres</td></tr>
+    </tbody>
+  </table>
+  <p>Listed starting prices from public sources; re-check before quoting.</p>
+
+  <h2>What the developer needs to do next</h2>
+  <ol>
+    <li>Confirm the facts marked TODO-VERIFY: legal entity name, land area, unit count and split, possession date, prices, phone, WhatsApp and email.</li>
+    <li>Give the team owner access to the Google Business Profile, Justdial and the portal builder accounts.</li>
+    <li>Supply the architect's site and floor plans and any renders or site photographs, so the drawn placeholders can be replaced.</li>
+    <li>Approve the budget band (₹1.5–2.5 L a month) and the call-within-5-minutes lead SOP.</li>
+  </ol>
+
+  <div class="note"><b>Why this matters for AI answers:</b> engines such as ChatGPT, Perplexity and Google AI Overviews cite sources that agree with each other and carry structured, dated facts. One official page with sourced figures, repeated identically across the directories, is the fastest way to become the cited answer for "Motzkin Park Terrace price" and "villas under 2 crore Sarjapur".</div>
+</main>
+</body>
+</html>
